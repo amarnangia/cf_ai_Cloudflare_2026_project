@@ -1,0 +1,27 @@
+{
+  "name": "nrityaai-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-01-01",
+
+  "ai": {
+    "binding": "AI"
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT",
+        "class_name": "ChatDO"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ChatDO"
+      ]
+    }
+  ]
+}

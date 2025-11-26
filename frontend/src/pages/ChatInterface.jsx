@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Sparkles, Video, ExternalLink, Plus, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
+import { config } from '../config';
 
 const ChatInterface = () => {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ const ChatInterface = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (inputValue.trim()) {
       const newMessage = {
         id: messages.length + 1,
@@ -87,13 +88,68 @@ const ChatInterface = () => {
           : chat
       ));
       
+      const currentInput = inputValue;
       setInputValue('');
-      
-      // Simulate AI typing
       setIsTyping(true);
-      setTimeout(() => {
+      
+      try {
+        const workerUrl = config.workerUrl;
+        
+        // Get or create persistent user ID
+        let persistentUserId = localStorage.getItem('nrityaai_user_id');
+        if (!persistentUserId) {
+          persistentUserId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('nrityaai_user_id', persistentUserId);
+        }
+        
+        const response = await fetch(workerUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: currentInput,
+            userId: persistentUserId // Use persistent user ID
+          })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          const aiMessage = {
+            id: messages.length + 2,
+            type: 'ai',
+            content: data.reply,
+            timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+          };
+          
+          setChatSessions(chatSessions.map(chat => 
+            chat.id === activeChatId 
+              ? { ...chat, messages: [...chat.messages, newMessage, aiMessage] }
+              : chat
+          ));
+        } else {
+          throw new Error('Failed to get response');
+        }
+      } catch (error) {
+        console.error('Error calling AI:', error);
+        
+        // Fallback message
+        const errorMessage = {
+          id: messages.length + 2,
+          type: 'ai',
+          content: 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment.',
+          timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+        };
+        
+        setChatSessions(chatSessions.map(chat => 
+          chat.id === activeChatId 
+            ? { ...chat, messages: [...chat.messages, newMessage, errorMessage] }
+            : chat
+        ));
+      } finally {
         setIsTyping(false);
-      }, 2000);
+      }
     }
   };
   
