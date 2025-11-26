@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Production builds
+/build
+/dist
+frontend/build/
+frontend/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Cache directories
+.cache/
+.parcel-cache/
+.metro-cache/
+.metro/
+metro-cache/
+.webpack/
+.babel-cache/
+.eslintcache
+.prettiercache
+*.tsbuildinfo
+.turbo/
+.vite/
+.swc/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Coverage
+/coverage
+*.lcov
+
+# Temporary folders
+tmp/
+temp/
