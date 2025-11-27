@@ -5,6 +5,7 @@ import { Send, Sparkles, Video, ExternalLink, Plus, MessageSquare } from 'lucide
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { config } from '../config';
+import MessageContent from '../components/MessageContent';
 
 const ChatInterface = () => {
   const navigate = useNavigate();
@@ -315,7 +316,7 @@ const ChatInterface = () => {
                           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
                         }}
                       >
-                        <p className="leading-relaxed">{message.content}</p>
+                        <MessageContent content={message.content} isAI={message.type === 'ai'} />
                       </div>
                       
                       {/* Resources */}

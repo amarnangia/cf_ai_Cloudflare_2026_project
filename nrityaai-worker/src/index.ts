@@ -1,4 +1,4 @@
-import { danceResources } from './dance_resources';
+import { danceResources, getResourcesByCategory, searchResources } from './dance_resources';
 import { ChatDO } from './chatD0';
 
 export { ChatDO };
@@ -11,10 +11,13 @@ export default {
 - TECHNIQUE: asking about specific moves, postures, or techniques
 - THEORY: asking about history, philosophy, or cultural aspects  
 - PRACTICE: asking for exercises, routines, or practice guidance
-- RESOURCES: asking for videos, books, or learning materials
+- RESOURCES: asking for videos, books, learning materials, tutorials, "show me", "recommend", "what should I watch", "help me learn"
 - GENERAL: general conversation or greeting
 
 User message: "${message}"
+
+Note: If they want to LEARN something or need HELP with something, classify as RESOURCES.
+If they say "show me", "recommend", "tutorial", "video", "learn", "help" - classify as RESOURCES.
 
 Respond with just the category name.`;
     
@@ -26,40 +29,62 @@ Respond with just the category name.`;
     
     switch(intent) {
       case "TECHNIQUE":
-        specializedPrompt = `You are a dance technique expert specializing in ${memory.style}. The user is at ${memory.level} level.
-Provide detailed, step-by-step technical guidance for: ${message}
-Include body positioning, hand gestures, and common mistakes to avoid.`;
+        specializedPrompt = `You are a dance technique expert. Provide step-by-step guidance for: ${message}
+For ${memory.level} ${memory.style} students. If relevant, mention that you can recommend specific tutorial videos if they ask for resources.`;
         break;
       case "THEORY":
-        specializedPrompt = `You are a dance historian and cultural expert in ${memory.style}. 
-Explain the cultural significance, history, and philosophy behind: ${message}
-Make it engaging and educational for a ${memory.level} student.`;
+        specializedPrompt = `You are a dance historian. Explain the cultural significance of: ${message}
+Keep response under 100 words. Make it engaging for a ${memory.level} ${memory.style} student.`;
         break;
       case "PRACTICE":
-        specializedPrompt = `You are a dance practice coach for ${memory.style}. Create a structured practice routine for: ${message}
-Include warm-up, main exercises, and cool-down appropriate for ${memory.level} level.`;
+        specializedPrompt = `You are a practice coach. Create a routine for: ${message}
+For ${memory.level} ${memory.style} students. Include 3-4 key exercises. Mention that you have specific tutorial videos if they want to see demonstrations.`;
         break;
       case "RESOURCES":
-        specializedPrompt = `You are a dance education curator. Recommend specific learning resources for: ${message}
-Available resources: ${JSON.stringify(resources)}
-Suggest the best materials for a ${memory.level} ${memory.style} student.`;
+        // Enhanced resource selection based on query
+        const keywords = message.toLowerCase().split(' ');
+        const searchResults = searchResources(memory.style, memory.level, keywords);
+        const relevantResources = searchResults.length > 0 ? searchResults.slice(0, 3) : resources.slice(0, 3);
+        
+        specializedPrompt = `You are a resource curator. Someone asked: "${message}"
+
+You MUST recommend these specific tutorials and include their exact URLs:
+
+${relevantResources.map(r => `**${r.title}**
+${r.url}
+${r.description}`).join('\n\n')}
+
+Your response format:
+"Here are excellent ${memory.style} tutorials for you:
+
+**[Resource Title]**
+[Full URL]
+[Why it's helpful]
+
+**[Resource Title 2]**
+[Full URL 2]
+[Why it's helpful]"
+
+You MUST copy the exact URLs from above. Do not modify them.`;
         break;
       default:
         specializedPrompt = `You are NrityaAI, a friendly dance instructor. Respond warmly to: ${message}
-User is learning ${memory.style} at ${memory.level} level.`;
+User is learning ${memory.style} at ${memory.level} level. Always offer to share specific tutorial videos and resources to help them learn better!`;
     }
 
     const specializedRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: specializedPrompt });
     
     // Agent 3: Response Enhancement & Personalization
-    const enhancePrompt = `You are a master dance instructor. Take this response and enhance it with:
-1. Personal encouragement based on their ${memory.level} level
-2. Connection to their ${memory.style} journey
-3. A specific next step or practice suggestion
+    const enhancePrompt = `Take this dance instruction and make it more encouraging and personal:
 
-Original response: ${specializedRes.response}
+Original: ${specializedRes.response}
 
-Enhance this response to be more personal and actionable:`;
+Add:
+- Brief encouragement for ${memory.level} level
+- One specific next step
+- Keep total response under 120 words
+
+Enhanced response:`;
     
     const finalRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: enhancePrompt });
     
@@ -104,7 +129,7 @@ Enhance this response to be more personal and actionable:`;
       const memory = await memoryRes.json() as { style: string; level: string; history: Array<{ user: string; ai: string }> };
 
       // 3. Get relevant dance resources
-      const resources = (danceResources as any)[memory.style]?.[memory.level] || [];
+      const resources = getResourcesByCategory(memory.style, memory.level) || [];
 
       // 4. WORKFLOW: Multi-Agent Dance Instruction System
       const workflow = await this.executeWorkflow(message, memory, resources, env.AI);
