@@ -2,7 +2,7 @@
 
 This document contains all the AI prompts used during the development of NrityaAI, demonstrating the AI-assisted coding approach and the iterative development process.
 
-## 🎯 Initial Ideation and Planning
+## Initial Ideation and Planning
 
 ### Project Concept Refinement (ChatGPT)
 
@@ -17,7 +17,7 @@ I need to build an AI-powered application for a Cloudflare assignment that must 
 I'm thinking of creating an AI dance instructor for Indian classical dance. Help me refine this idea and make it unique. What would make this compelling for Cloudflare engineers to review? How can I showcase advanced AI coordination and cultural authenticity?
 ```
 
-**Implementation Overview Request:**
+**Implementation Overview Request (after discussing and refining idea):**
 ```
 Great concept! Now give me a high-level implementation roadmap for building this NrityaAI dance instructor:
 
@@ -36,9 +36,87 @@ Give me concrete steps I can follow to build this from scratch.
 
 **Base Website Creation Prompt:**
 ```
-[PLACEHOLDER FOR YOUR EMERGENT PROMPT]
+You are a senior frontend product designer and React engineer.
 
-*Please add your specific prompt that you used with Emergent to create the base website structure here. This section is reserved for documenting the initial website generation prompt that kickstarted the frontend development.*
+Build a PREMIUM-QUALITY, PRODUCTION-READY UI ONLY (no backend, no APIs, no logic) for a web app called:
+
+“NrityaAI – Your Personalized Indian Dance Learning Companion”
+
+DESIGN GOALS:
+- Elegant Indian classical aesthetic
+- Warm maroon, gold, and soft cream color palette
+- Calm, premium, focused learning vibe
+- Clean, modern startup-quality UI
+- Fully responsive (mobile + desktop)
+- Accessible and readable
+
+TECH STACK:
+- React
+- Tailwind CSS
+- Framer Motion for subtle animations
+- lucide-react for icons
+- No backend
+- No API calls
+- No dummy fetch logic
+
+PAGES / COMPONENTS TO BUILD:
+
+1. Landing Page:
+- Large hero with:
+  - App name: “NrityaAI”
+  - Tagline: “Your Personalized Indian Dance Learning Companion”
+  - Primary CTA button: “Start Learning”
+- Elegant abstract dance-inspired background
+- Minimal footer with GitHub + About text
+
+2. First-Time Setup Modal:
+- Beautiful card-based selection UI:
+  - Dance styles: Bharatanatyam, Kathak, Odissi, Bhangra, Garba
+  - Experience levels: Beginner, Intermediate, Advanced
+- Visually highlight selected cards
+- No actual state logic required (just UI visuals)
+
+3. Main Chat Interface:
+- Left sidebar (desktop):
+  - NrityaAI logo
+  - Selected dance style badge
+  - Experience level badge
+  - “New Session” button
+- Main chat area:
+  - AI messages on left with lotus-style icon
+  - User messages on right
+  - Timestamp on messages
+  - Animated typing indicator
+- Bottom input bar:
+  - Rounded text input
+  - Send icon button
+  - Emoji icon (optional)
+
+4. Learning Resource Cards (UI only):
+- Beautiful recommendation cards for:
+  - Videos
+  - Learning websites
+- Each card includes:
+  - Resource title
+  - Resource type label (Video / Website)
+  - Play or external-link icon
+- All links should be placeholders only
+
+IMPORTANT CONSTRAINTS:
+- Do NOT implement any backend logic
+- Do NOT call any APIs
+- Do NOT include mock fetch requests
+- Do NOT include authentication
+- Focus strictly on UI, layout, animation, and visual polish
+
+OUTPUT REQUIREMENTS:
+- Full React + Tailwind component code
+- Framer Motion animations where appropriate
+- Clean project structure
+- Minimal but realistic dummy messages hardcoded for preview
+- Production-quality styling
+
+This UI should look impressive enough to be shown directly to Cloudflare engineers.
 ```
 
 ## 🛠️ Backend Development Journey
