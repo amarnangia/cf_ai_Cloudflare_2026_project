@@ -261,6 +261,39 @@ Each agent is implemented as a separate LLM call with specialized prompts, creat
 - **Efficient Memory**: Only recent conversation history used for context
 - **Resource Optimization**: Minimal bundle size and optimized API calls
 
+## 🧪 API Testing
+
+### Quick Smoke Test
+```bash
+# Test the deployed worker
+curl -X POST https://nrityaai-worker.amarvivaknangia.workers.dev \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "Show me Bharatanatyam tutorials",
+    "userId": "test_user_123"
+  }'
+```
+
+### Expected Response Format
+```json
+{
+  "reply": "Here are excellent Bharatanatyam tutorials for you:\n\n**Beginner Bharatanatyam Full Class – Kalakshetra Style**\nhttps://www.youtube.com/watch?v=Y9LZbM8cpvA\nComplete beginner class in traditional Kalakshetra style..."
+}
+```
+
+### Test Different Intents
+```bash
+# Test technique query
+curl -X POST https://nrityaai-worker.amarvivaknangia.workers.dev \
+  -H "Content-Type: application/json" \
+  -d '{"message": "How do I do aramandi position?", "userId": "test_user_123"}'
+
+# Test resource query  
+curl -X POST https://nrityaai-worker.amarvivaknangia.workers.dev \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Recommend Kathak videos", "userId": "test_user_123"}'
+```
+
 ## 🔧 Configuration
 
 ### Environment Variables
@@ -270,22 +303,39 @@ REACT_APP_WORKER_URL=https://your-worker.your-subdomain.workers.dev
 ```
 
 ### Worker Configuration
-Update `wrangler.jsonc` with your account details:
+Exact `wrangler.jsonc` configuration:
 ```json
 {
   "name": "nrityaai-worker",
   "main": "src/index.ts",
   "compatibility_date": "2024-01-01",
-  "ai": { "binding": "AI" },
-  "durable_objects": {
-    "bindings": [{ "name": "CHAT", "class_name": "ChatDO" }]
+  "ai": {
+    "binding": "AI"
   },
-  "migrations": [{
-    "tag": "v1",
-    "new_sqlite_classes": ["ChatDO"]
-  }]
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT",
+        "class_name": "ChatDO"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ChatDO"
+      ]
+    }
+  ]
 }
 ```
+
+### AI Model Used
+**Model**: `@cf/meta/llama-3.1-8b-instruct`
+- Used consistently across all 3 agents
+- Binding: `env.AI`
+- All AI calls: `await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt })`
 
 ## 🤝 Contributing
 

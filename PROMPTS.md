@@ -147,7 +147,7 @@ Show me a practical example for storing chat conversations.
 
 **AI Integration Challenges:**
 ```
-I'm having trouble integrating Workers AI. The model name "@cf/meta/llama-3.3-70b-instruct" doesn't exist. Help me:
+I'm having trouble integrating Workers AI. Help me:
 - Find the correct model names available in Workers AI
 - Set up the AI binding properly
 - Handle AI responses and errors
