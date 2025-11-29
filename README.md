@@ -74,8 +74,8 @@ The application implements a sophisticated 3-agent pipeline that processes each 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd Cloudflare-2026-project
+   git clone <https://github.com/amarnangia/cf_ai_Cloudflare_2026_project
+   cd cf_ai_Cloudflare_2026_project
    ```
 
 2. **Start the Frontend**
