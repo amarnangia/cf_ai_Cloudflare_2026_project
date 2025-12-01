@@ -337,6 +337,43 @@ Exact `wrangler.jsonc` configuration:
 - Binding: `env.AI`
 - All AI calls: `await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt })`
 
+### Updating Dance Resources
+
+To add or modify dance tutorials and resources:
+
+1. **Edit the Resource File**
+   ```bash
+   # Edit the dance resources in TypeScript format
+   vim nrityaai-worker/src/dance_resources.ts
+   ```
+
+2. **Generate SQL from Resources**
+   ```bash
+   cd nrityaai-worker
+   node generate_sql.js
+   ```
+
+3. **Upload to Database**
+   ```bash
+   wrangler d1 execute nrityaai-db --remote --file=./populate.sql
+   ```
+
+4. **Deploy Worker** (if needed)
+   ```bash
+   wrangler deploy
+   ```
+
+**Resource Format**:
+```typescript
+{
+  title: "Tutorial Title",
+  type: "Video" | "Playlist" | "Website" | "Article",
+  url: "https://example.com",
+  category: "technique" | "theory" | "practice" | "resources",
+  description: "Brief description of the resource"
+}
+```
+
 ## 🤝 Contributing
 
 ### Development Workflow
