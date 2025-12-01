@@ -1,11 +1,11 @@
-import { danceResources, getResourcesByCategory, searchResources } from './dance_resources';
+import { danceResources, getResourcesByCategory } from './dance_resources';
 import { ChatDO } from './chatD0';
 
 export { ChatDO };
 
 export default {
   // Optimized Multi-Agent Workflow (2 AI calls instead of 4)
-  async executeWorkflow(message: string, memory: any, resources: any[], ai: any) {
+  async executeWorkflow(message: string, memory: any, resources: any[], ai: any, env: any) {
     // Agent 1: Combined Style Detection + Intent Classification
     const analysisPrompt = `Analyze this dance learning request and provide TWO outputs:
 
@@ -81,35 +81,52 @@ Create a structured practice routine with 3-4 exercises. Add encouragement for $
         break;
         
       case "RESOURCES":
-        // Get relevant resources
-        const targetStyle = detectedStyle !== "NONE" ? detectedStyle : memory.style;
-        let relevantResources = [];
-        if (targetStyle && targetStyle !== "STYLES_OVERVIEW") {
-          const styleResources = getResourcesByCategory(targetStyle, memory.level);
-          if (styleResources && styleResources.length > 0) {
-            relevantResources = styleResources.slice(0, 3);
+        // Query database for resources
+        const msg = message.toLowerCase();
+        let style = 'General';
+        
+        if (msg.includes('bharatanatyam')) style = 'Bharatanatyam';
+        else if (msg.includes('kathak')) style = 'Kathak';
+        else if (msg.includes('bhangra')) style = 'Bhangra';
+        else if (msg.includes('bollywood')) style = 'Bollywood';
+        else if (msg.includes('tollywood')) style = 'Tollywood';
+        
+        console.log('RESOURCES: Starting database query');
+        console.log('RESOURCES: env.DB exists:', !!env.DB);
+        
+        try {
+          const allResources = await env.DB.prepare(
+            "SELECT title, url, description, style FROM dance_resources"
+          ).all();
+          
+          console.log('RESOURCES: DB query completed');
+          console.log('RESOURCES: success =', allResources.success);
+          console.log('RESOURCES: results length =', allResources.results?.length || 0);
+          
+          if (allResources.success && allResources.results && allResources.results.length > 0) {
+            console.log('RESOURCES: Using database results');
+            specializedPrompt = `User asked: "${message}"
+
+You MUST respond with:
+"Here are excellent dance tutorials for you:
+
+**[TITLE]**
+[URL]
+[DESCRIPTION]"
+
+Choose 3-4 most relevant resources from ALL available resources:
+${allResources.results.map(r => `${r.title}|${r.url}|${r.description}|Style:${r.style}`).join('\n')}
+
+Copy URLs exactly. Choose based on what user asked for.`;
           } else {
-            const keywords = message.toLowerCase().split(' ');
-            const searchResults = searchResources(targetStyle, memory.level, keywords);
-            relevantResources = searchResults.slice(0, 3);
+            console.log('RESOURCES: No valid database results');
+            specializedPrompt = `Say: "I don't have resources available right now. I can help with technique or practice guidance instead."`;
           }
+        } catch (error) {
+          console.error('RESOURCES: Database error:', error.message);
+          console.error('RESOURCES: Full error:', error);
+          specializedPrompt = `Say: "I'm having trouble accessing resources right now. I can help with technique or practice guidance instead."`;
         }
-        
-        if (relevantResources.length === 0) {
-          relevantResources = danceResources.General?.slice(0, 3) || [];
-        }
-        
-        const styleDisplayName = targetStyle || "dance";
-        
-        specializedPrompt = `You are a resource curator. ${contextPrefix}User asked: "${message}"
-
-Recommend these specific tutorials with exact URLs:
-
-${relevantResources.map(r => `**${r.title}**\n${r.url}\n${r.description}`).join('\n\n')}
-
-Format: "Here are excellent ${styleDisplayName} tutorials for you:\n\n**[Title]**\n[URL]\n[Why helpful]\n\n**[Title 2]**\n[URL 2]\n[Why helpful]"
-
-Add encouragement for ${memory.level} level. Copy URLs exactly.`;
         break;
         
       case "STYLES_OVERVIEW":
@@ -129,7 +146,7 @@ Ask which interests them for personalized recommendations! Keep encouraging.`;
 
 User profile: ${memory.level} level, learning ${currentStyle}
 
-Respond warmly and offer to share specific tutorial videos and resources. Keep encouraging and under 120 words.`;
+If this is a simple question (like asking for their name, a greeting, or basic info), give a short direct answer. Otherwise, respond warmly about dance. Keep under 50 words for simple questions, 120 words for dance topics.`;
     }
     
     const finalRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: specializedPrompt });
@@ -221,7 +238,7 @@ Respond warmly and offer to share specific tutorial videos and resources. Keep e
       const resources = memory.style ? getResourcesByCategory(memory.style, memory.level) || [] : [];
 
       // 4. WORKFLOW: Optimized Multi-Agent Dance Instruction System
-      const workflow = await this.executeWorkflow(message, memory, [], env.AI);
+      const workflow = await this.executeWorkflow(message, memory, [], env.AI, env);
       const reply = workflow.finalResponse;
 
       // 5. Save conversation to memory (including any style updates)

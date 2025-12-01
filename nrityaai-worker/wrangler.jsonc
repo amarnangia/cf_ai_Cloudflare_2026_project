@@ -7,6 +7,14 @@
     "binding": "AI"
   },
 
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nrityaai-db",
+      "database_id": "17e58ab4-7394-498a-b355-284f254b05cd"
+    }
+  ],
+
   "durable_objects": {
     "bindings": [
       {

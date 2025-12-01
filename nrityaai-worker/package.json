@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler deploy",
+		"deploy": "npm run setup-db && wrangler deploy",
+		"setup-db": "wrangler d1 execute nrityaai-db --file=schema.sql --remote && node seed-db.js > seed.sql && wrangler d1 execute nrityaai-db --file=seed.sql --remote",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest",

@@ -64,7 +64,7 @@ const ChatInterface = () => {
             messages: [{
               id: 1,
               type: 'ai',
-              content: 'Namaste! Welcome to NrityaAI. I\'m here to guide you through your Indian classical dance journey. What would you like to learn today?',
+              content: 'Namaste! Welcome to NrityaAI. I specialize in:\n\n**Classical Dance:**\n• Bharatanatyam • Kathak • Odissi • Kuchipudi • Manipuri • Mohiniyattam\n\n**Folk & Popular:**\n• Bhangra • Garba/Dandiya • Bollywood\n\nWhat would you like to learn today?',
               timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
             }]
           };
@@ -85,7 +85,7 @@ const ChatInterface = () => {
         messages: [{
           id: 1,
           type: 'ai',
-          content: 'Namaste! Welcome to NrityaAI. What would you like to learn today?',
+          content: 'Namaste! Welcome to NrityaAI. I specialize in:\n\n**Classical Dance:**\n• Bharatanatyam • Kathak • Odissi • Kuchipudi • Manipuri • Mohiniyattam\n\n**Folk & Popular:**\n• Bhangra • Garba/Dandiya • Bollywood\n\nWhat would you like to learn today?',
           timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
         }]
       };
@@ -212,7 +212,7 @@ const ChatInterface = () => {
         {
           id: 1,
           type: 'ai',
-          content: 'Namaste! Welcome to NrityaAI. I\'m here to guide you through your Indian classical dance journey. What would you like to learn today?',
+          content: 'Namaste! Welcome to NrityaAI. I specialize in:\n\n**Classical Dance:**\n• Bharatanatyam • Kathak • Odissi • Kuchipudi • Manipuri • Mohiniyattam\n\n**Folk & Popular:**\n• Bhangra • Garba/Dandiya • Bollywood\n\nWhat would you like to learn today?',
           timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
         }
       ]
