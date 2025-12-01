@@ -89,72 +89,111 @@ export const danceResources = {
       description: "Government portal for Indian classical performing arts."
     },
   ],
-  Kathak: {
-    Beginner: [
-    ],
+Kathak: {
+  Beginner: [
+    {
+      title: "Kathak Basic Hand Movements (Beginner Tutorial)",
+      type: "Video",
+      url: "https://timesofindia.indiatimes.com/videos/lifestyle/health-fitness/kathak-basic-hand-movements-tutorial-for-beginners/videoshow/106013774.cms",
+      category: "technique",
+      description: "Learn foundational hand gestures (hastas) for Kathak — good starting point for complete beginners."
+    },
+    {
+      title: "Chakkars Demonstration — How to Do Kathak Spins (Beginner/Intermediate)",
+      type: "Video",
+      url: "https://www.youtube.com/watch?v=ipXS4d7oS8U",
+      category: "technique",
+      description: "Spinning (chakkar) tutorial by experienced teacher — great for learning pirouettes and balance control."
+    }
+  ],
 
-    Intermediate: [
-      {
-        title: "Kathak Expressional Storytelling",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=kXYiU_JCYtU",
-        category: "technique",
-        description: "Intermediate-level abhinaya using Thumri and Bhajan."
-      }
-    ],
+  Intermediate: [
+    {
+      title: "Kathak Online Course — Intermediate Syllabus (Guru Pali Chandra)",
+      type: "Website / Paid Course",
+      url: "https://www.natyasutraonline.com/kathak/gurupalichandra/intermediate-online-lessons-tutorial",
+      category: "course",
+      description: "Comprehensive intermediate Kathak lessons (footwork, rhythm, abhinaya, compositions) available via subscription."
+    },
+    {
+      title: "Online Kathak Classes — Intermediate Course (Tatkaar, Mudras, Chakkars)",
+      type: "Website / Paid Course",
+      url: "https://www.nrityashreekathak.com/",
+      category: "course",
+      description: "Online classes offering intermediate-level Kathak — includes structured training in footwork, spins, and expressive dance."
+    }
+  ],
 
-    Advanced: [
-      {
-        title: "Kathak Tarana – Advanced Performance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4",
-        category: "technique",
-        description: "High-speed pure dance Tarana performed by professional artists."
-      },
-      {
-        title: "Advanced Kathak Chakkars & Pirouettes",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-        category: "technique",
-        description: "Multiple continuous spins with advanced spotting control."
-      },
-      {
-        title: "Nrityashala Kathak Online Academy",
-        type: "Website",
-        url: "https://nrityashala.com",
-        category: "resources",
-        description: "Professional online Kathak training school with certification programs."
-      }
-    ]
-  },
-    Bhangra: {
-    Beginner: [
-      {
-        title: "Bhangra Basics for Beginners – Full Intro Class",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ZkNMZlkrzaU",
-        category: "technique",
-        description: "Complete beginner introduction to basic Bhangra movements and posture."
-      },
-    
-    ],
+  Advanced: [
+    {
+      title: "Online Kathak Classes — Advanced Diploma Course",
+      type: "Website / Paid Course",
+      url: "https://www.nrityashreekathak.com/courses",
+      category: "resources",
+      description: "Advanced-level online Kathak curriculum offering training in laykari, complex compositions, performance techniques."
+    },
+    {
+      title: "Advanced Kathak Classes (1-on-1 via ipassio) — Instructor: Pallavi Shome",
+      type: "Website / Paid Classes",
+      url: "https://www.ipassio.com/online-kathak-classes/pallavi-shome/advanced-level-kathak-dance-classes-online",
+      category: "resources",
+      description: "Private advanced Kathak classes suitable for serious learners aiming for professional-level performance."
+    }
+  ]
+},
+Bhangra: {
+  Beginner: [
+    {
+      title: "Learn Bhangra – Single Dhamaal Step by Step (Lesson 1)",
+      type: "Video",
+      url: "https://www.youtube.com/learnbhangranow",
+      category: "technique",
+      description: "Official Bhangra beginner playlist: start with fundamental steps like Single Dhamaal — a great entry into Bhangra rhythms and moves."
+    },
+    {
+      title: "BHANGRAlicious – Easy Bhangra Step Tutorial (Dhamaal, Bedi, Punjab)",
+      type: "Website / Video Series",
+      url: "https://bhangralicious.com/",
+      category: "technique",
+      description: "Beginner‑friendly Bhangra lessons in English — covers ~26 basic steps and short choreographies for first‑time learners."  
+    }
+  ],
 
-    Intermediate: [
-      
-      
-    ],
+  Intermediate: [
+    {
+      title: "Online Bhangra Classes via ipassio (for Intermediate Learners)",
+      type: "Website / Class",
+      url: "https://www.ipassio.com/online-bhangra-lessons",
+      category: "course",
+      description: "Platform offering 1‑on‑1 or small‑group Bhangra classes online — suitable for learners beyond basics who want structured training."  
+    },
+    {
+      title: "Intermediate Bhangra via Dholrhythms Dance Company – 'Intro to Bhangra' Class",
+      type: "Website / Paid Class",
+      url: "https://dholrhythms.com/store/intro-to-bhangra-class/",
+      category: "course",
+      description: "An online class teaching footwork, posture, shoulder‑bounce and classic Bhangra rhythms — good transition from beginner to intermediate."  
+    }
+  ],
 
-    Advanced: [
-      {
-        title: "Bhangra Empire Official Training Platform",
-        type: "Website",
-        url: "https://www.instagram.com/bhangraempire",
-        category: "resources",
-        description: "Professional Bhangra training programs and performance prep."
-      }
-    ]
-  },
-    Tollywood: {
+  Advanced: [
+    {
+      title: "Full Bhangra Choreography Tutorials – Advanced Level (from Learn Bhangra)",
+      type: "Website / Video Series",
+      url: "https://learnbhangra.com/tutorials/",
+      category: "resources",
+      description: "Step‑by‑step advanced choreographies for experienced dancers — great for parties, events, or performance‑level practice."  
+    },
+    {
+      title: "Private Advanced Bhangra Lessons (1‑on‑1) via ipassio",
+      type: "Website / Class",
+      url: "https://www.ipassio.com/online-bhangra-lessons/jasdeep-singh/punjab-folk-dance-bhangra-lessons-for-beginners",
+      category: "resources",
+      description: "Although listed under beginners, many teachers like Jasdeep Singh on ipassio tailor 1‑on‑1 sessions for advanced training based on your skill level."  
+    }
+  ]
+},
+  Tollywood: {
     Beginner: [
       {
         title: "Tollywood Dance Performance (Easy Steps)",
@@ -215,32 +254,56 @@ export const danceResources = {
   },
   Bollywood: {
     Beginner: [
-      
       {
-        title: "Shiamak Davar Online Dance Classes",
-        type: "Website",
-        url: "https://www.shiamak.com",
-        category: "resources",
-        description: "Professional Bollywood and contemporary training academy."
+        title: "How to Learn Bollywood Dance – Step by Step (Beginner)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=mVhfaPpxDkw",
+        category: "technique",
+        description: "Intro tutorial combining Bollywood‑style dance moves — good starting point if you're totally new."
       },
-      
+      {
+        title: "Bollywood Beginner Dance Course – Beginners Dance Course (Aila Re Aillaa / Sooryavanshi)",
+        type: "Paid Course",
+        url: "https://www.udemy.com/course/beginners-dance-course-bollywood-1/",
+        category: "course",
+        description: "Structured beginner course covering basics, warmup, dance passes, groves, and choreography on a Bollywood song."
+      }
     ],
 
     Intermediate: [
+      {
+        title: "Online Bollywood 1-on-1 Class with Nandika Diwedi",
+        type: "Website / Class",
+        url: "https://www.ipassio.com/bollywood-dance-classes/nandika-diwedi/learn-bollywood-dance",
+        category: "course",
+        description: "Personalized online 1‑on‑1 Bollywood dance training — ideal for intermediate learners wanting structured growth."
+      },
+      {
+        title: "Online Bollywood 1-on-1 Class with Monikka Kalurkar (Beginner → Intermediate)",
+        type: "Website / Class",
+        url: "https://www.ipassio.com/bollywood-dance-classes/monikka-kalurkar/opportunity-to-Learn-bollywood-dance-for-beginners",
+        category: "course",
+        description: "Flexible online classes (in English/Hindi) that guide you beyond basics — good stepping stone toward intermediate level."
+      }
     ],
 
     Advanced: [
-      
       {
-        title: "Shiamak Davar Advanced Bollywood Training Program",
-        type: "Website",
-        url: "https://www.shiamak.com/online-classes",
+        title: "Online Bollywood 1-on-1 Class with Yukti Bhatnagar — All Levels / Advanced Training",
+        type: "Website / Class",
+        url: "https://www.ipassio.com/bollywood-dance-classes/yukti-bhatnagar/bollywood-dance-lessons-for-all-levels",
         category: "resources",
-        description: "Advanced structured Bollywood performance training."
+        description: "Tailored online Bollywood dance training aimed at advanced learners — covers choreography, performance, styling, and fusion."
       },
-      
+      {
+        title: "Pre-recorded Bollywood Dance Tutorials – Sitaara Dance Co. Online Classes",
+        type: "Website / Tutorial Library",
+        url: "https://www.sitaaradance.co/bollywood-dance-online-class-tutorials",
+        category: "resources",
+        description: "On‑demand Bollywood dance tutorials — learn at your own pace, with flexibility to rewind/ replay to master moves and choreography."
+      }
     ]
-  },
+  }
 
 }
 
