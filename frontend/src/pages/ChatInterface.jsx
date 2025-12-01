@@ -10,53 +10,10 @@ import MessageContent from '../components/MessageContent';
 const ChatInterface = () => {
   const navigate = useNavigate();
   
-  // Initial chat sessions
-  const [chatSessions, setChatSessions] = useState([
-    {
-      id: 1,
-      title: 'Bharatanatyam Basics',
-      messages: [
-        {
-          id: 1,
-          type: 'ai',
-          content: 'Namaste! Welcome to NrityaAI. I\'m here to guide you through your Indian classical dance journey. What would you like to learn today?',
-          timestamp: '10:30 AM'
-        },
-        {
-          id: 2,
-          type: 'user',
-          content: 'I want to learn the basics of Bharatanatyam hand gestures',
-          timestamp: '10:31 AM'
-        },
-        {
-          id: 3,
-          type: 'ai',
-          content: 'Excellent choice! Bharatanatyam hand gestures, or "Hastas," are fundamental to expressing stories and emotions. Let me share some resources to get you started with the basic single-hand gestures (Asamyuta Hastas).',
-          timestamp: '10:31 AM',
-          resources: [
-            {
-              title: 'Bharatanatyam Basic Hand Gestures Tutorial',
-              type: 'video',
-              url: '#'
-            },
-            {
-              title: 'Complete Guide to Asamyuta Hastas',
-              type: 'website',
-              url: '#'
-            }
-          ]
-        },
-        {
-          id: 4,
-          type: 'user',
-          content: 'These look great! Can you also explain the significance of each gesture?',
-          timestamp: '10:35 AM'
-        }
-      ]
-    }
-  ]);
+  const [chatSessions, setChatSessions] = useState([]);
+  const [isLoadingChats, setIsLoadingChats] = useState(true);
   
-  const [activeChatId, setActiveChatId] = useState(1);
+  const [activeChatId, setActiveChatId] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
@@ -69,9 +26,92 @@ const ChatInterface = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Load chat sessions on mount
+  useEffect(() => {
+    loadChatSessions();
+  }, []);
+  
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+  
+  const loadChatSessions = async () => {
+    try {
+      let persistentUserId = localStorage.getItem('nrityaai_user_id');
+      if (!persistentUserId) {
+        persistentUserId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        localStorage.setItem('nrityaai_user_id', persistentUserId);
+      }
+      
+      const response = await fetch(config.workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: persistentUserId,
+          action: 'getChats'
+        })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        const loadedChats = data.chats || [];
+        
+        if (loadedChats.length === 0) {
+          // Create initial chat if none exist
+          const initialChat = {
+            id: 1,
+            title: 'Welcome Chat',
+            messages: [{
+              id: 1,
+              type: 'ai',
+              content: 'Namaste! Welcome to NrityaAI. I\'m here to guide you through your Indian classical dance journey. What would you like to learn today?',
+              timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            }]
+          };
+          setChatSessions([initialChat]);
+          setActiveChatId(1);
+          await saveChatSessions([initialChat]);
+        } else {
+          setChatSessions(loadedChats);
+          setActiveChatId(loadedChats[0].id);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load chats:', error);
+      // Fallback to default chat
+      const defaultChat = {
+        id: 1,
+        title: 'Welcome Chat',
+        messages: [{
+          id: 1,
+          type: 'ai',
+          content: 'Namaste! Welcome to NrityaAI. What would you like to learn today?',
+          timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+        }]
+      };
+      setChatSessions([defaultChat]);
+      setActiveChatId(1);
+    } finally {
+      setIsLoadingChats(false);
+    }
+  };
+  
+  const saveChatSessions = async (sessions) => {
+    try {
+      const persistentUserId = localStorage.getItem('nrityaai_user_id');
+      await fetch(config.workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: persistentUserId,
+          action: 'saveChats',
+          chats: sessions
+        })
+      });
+    } catch (error) {
+      console.error('Failed to save chats:', error);
+    }
+  };
 
   const handleSend = async () => {
     if (inputValue.trim()) {
@@ -83,11 +123,12 @@ const ChatInterface = () => {
       };
       
       // Update the active chat session with new message
-      setChatSessions(chatSessions.map(chat => 
+      const updatedSessions = chatSessions.map(chat => 
         chat.id === activeChatId 
           ? { ...chat, messages: [...chat.messages, newMessage] }
           : chat
-      ));
+      );
+      setChatSessions(updatedSessions);
       
       const currentInput = inputValue;
       setInputValue('');
@@ -124,11 +165,15 @@ const ChatInterface = () => {
             timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
           };
           
-          setChatSessions(chatSessions.map(chat => 
-            chat.id === activeChatId 
-              ? { ...chat, messages: [...chat.messages, newMessage, aiMessage] }
-              : chat
-          ));
+          setChatSessions(prevSessions => {
+            const finalSessions = prevSessions.map(chat => 
+              chat.id === activeChatId 
+                ? { ...chat, messages: [...chat.messages, aiMessage] }
+                : chat
+            );
+            saveChatSessions(finalSessions);
+            return finalSessions;
+          });
         } else {
           throw new Error('Failed to get response');
         }
@@ -143,19 +188,23 @@ const ChatInterface = () => {
           timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
         };
         
-        setChatSessions(chatSessions.map(chat => 
-          chat.id === activeChatId 
-            ? { ...chat, messages: [...chat.messages, newMessage, errorMessage] }
-            : chat
-        ));
+        setChatSessions(prevSessions => {
+          const errorSessions = prevSessions.map(chat => 
+            chat.id === activeChatId 
+              ? { ...chat, messages: [...chat.messages, errorMessage] }
+              : chat
+          );
+          saveChatSessions(errorSessions);
+          return errorSessions;
+        });
       } finally {
         setIsTyping(false);
       }
     }
   };
   
-  const handleNewChat = () => {
-    const newChatId = Math.max(...chatSessions.map(c => c.id)) + 1;
+  const handleNewChat = async () => {
+    const newChatId = chatSessions.length > 0 ? Math.max(...chatSessions.map(c => c.id)) + 1 : 1;
     const newChat = {
       id: newChatId,
       title: `New Conversation ${newChatId}`,
@@ -168,8 +217,10 @@ const ChatInterface = () => {
         }
       ]
     };
-    setChatSessions([...chatSessions, newChat]);
+    const newSessions = [...chatSessions, newChat];
+    setChatSessions(newSessions);
     setActiveChatId(newChatId);
+    await saveChatSessions(newSessions);
   };
 
   return (
@@ -219,7 +270,11 @@ const ChatInterface = () => {
         
         {/* Chat Sessions List */}
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
-          {chatSessions.map((chat) => (
+          {isLoadingChats ? (
+            <div className="text-center py-8" style={{ color: '#F5E6D3', opacity: 0.6 }}>
+              Loading chats...
+            </div>
+          ) : chatSessions.map((chat) => (
             <motion.button
               key={chat.id}
               onClick={() => setActiveChatId(chat.id)}

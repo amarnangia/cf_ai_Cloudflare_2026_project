@@ -4,182 +4,142 @@ import { ChatDO } from './chatD0';
 export { ChatDO };
 
 export default {
-  // Multi-Agent Workflow for Dance Instruction
+  // Optimized Multi-Agent Workflow (2 AI calls instead of 4)
   async executeWorkflow(message: string, memory: any, resources: any[], ai: any) {
-    // First, detect if user is asking about a specific dance style
-    const danceStylePrompt = `Analyze this message and identify if the user is asking about a specific dance style.
+    // Agent 1: Combined Style Detection + Intent Classification
+    const analysisPrompt = `Analyze this dance learning request and provide TWO outputs:
 
 Message: "${message}"
 
-Dance styles to look for:
-- Bharatanatyam (South Indian classical)
-- Kathak (North Indian classical)
-- Odissi (Odia classical)
-- Kuchipudi (Telugu classical)
-- Bollywood (film dance)
-- Folk (includes Bhangra, Garba, Dandiya, Giddha, Lavani, etc.)
-- Other (Manipuri, Mohiniyattam, etc.)
+1. DANCE STYLE: Identify if asking about specific dance style:
+- Bharatanatyam, Kathak, Odissi, Kuchipudi, Manipuri, Mohiniyattam (classical)
+- Folk (if mentions Bhangra, Garba, Dandiya, Giddha, Lavani, etc.)
+- STYLES_OVERVIEW (if asking about "dance styles" or "types of dance")
+- NONE (if no specific style mentioned)
 
-Special cases:
-- If they mention "Bhangra", "Garba", "Dandiya", "Giddha", "Lavani", or other folk dances, respond with "Folk"
-- If they mention a classical dance name, respond with that exact name
-- If they ask about "dance styles" or "types of dance" in general, respond with "STYLES_OVERVIEW"
-- If no specific style is mentioned, respond with "NONE"
+2. INTENT: Classify the request:
+- TECHNIQUE: specific moves, postures, techniques
+- THEORY: history, philosophy, cultural aspects
+- PRACTICE: exercises, routines, practice guidance
+- RESOURCES: videos, tutorials, "show me", "recommend", "help me learn"
+- STYLES_OVERVIEW: asking about different dance styles
+- GENERAL: conversation or greeting
 
-Response:`;
+Format your response as:
+STYLE: [detected style]
+INTENT: [classified intent]`;
     
-    const styleRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: danceStylePrompt });
-    let detectedStyle = styleRes.response?.trim() || "NONE";
+    const analysisRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: analysisPrompt });
+    const analysisText = analysisRes.response || "";
     
-    // Handle specific folk dance mentions
-    const folkDances = ['bhangra', 'garba', 'dandiya', 'giddha', 'lavani', 'kalbelia', 'ghoomar'];
-    const messageLower = message.toLowerCase();
-    if (folkDances.some(dance => messageLower.includes(dance))) {
-      detectedStyle = "Folk";
-    }
+    // Parse the analysis
+    const styleMatch = analysisText.match(/STYLE:\s*([^\n]+)/);
+    const intentMatch = analysisText.match(/INTENT:\s*([^\n]+)/);
     
-    // Update memory if a new style is detected
+    const detectedStyle = styleMatch ? styleMatch[1].trim() : "NONE";
+    const intent = intentMatch ? intentMatch[1].trim() : "GENERAL";
+    
+    // Update memory if new style detected
     if (detectedStyle !== "NONE" && detectedStyle !== "STYLES_OVERVIEW" && detectedStyle !== memory.style) {
       memory.style = detectedStyle;
     }
     
-    // Agent 1: Intent Classification
-    const intentPrompt = `Classify this dance learning request into one of these categories:
-- TECHNIQUE: asking about specific moves, postures, or techniques
-- THEORY: asking about history, philosophy, or cultural aspects  
-- PRACTICE: asking for exercises, routines, or practice guidance
-- RESOURCES: asking for videos, books, learning materials, tutorials, "show me", "recommend", "what should I watch", "help me learn"
-- STYLES_OVERVIEW: asking about different dance styles or types of dance
-- GENERAL: general conversation or greeting
-
-User message: "${message}"
-
-Note: If they want to LEARN something or need HELP with something, classify as RESOURCES.
-If they say "show me", "recommend", "tutorial", "video", "learn", "help" - classify as RESOURCES.
-If they ask about "dance styles", "types of dance", "what dances are there" - classify as STYLES_OVERVIEW.
-
-Respond with just the category name.`;
-    
-    const intentRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: intentPrompt });
-    const intent = intentRes.response?.trim() || "GENERAL";
-
-    // Agent 2: Specialized Response based on Intent
+    // Agent 2: Specialized Response + Enhancement (Combined)
     let specializedPrompt = "";
+    const currentStyle = memory.style || detectedStyle || "Indian dance";
+    
+    // Get recent conversation context
+    const recentHistory = memory.history.slice(-4).map(h => `User: ${h.user}\nAI: ${h.ai}`).join('\n\n');
+    const contextPrefix = recentHistory ? `Recent conversation:\n${recentHistory}\n\n` : '';
     
     switch(intent) {
       case "TECHNIQUE":
-        specializedPrompt = `You are a dance technique expert. Provide step-by-step guidance for: ${message}
-For ${memory.level} ${memory.style || detectedStyle} students. If relevant, mention that you can recommend specific tutorial videos if they ask for resources.`;
+        specializedPrompt = `You are a dance technique expert specializing in ${currentStyle}. 
+
+${contextPrefix}User asked: "${message}"
+User level: ${memory.level}
+
+Provide step-by-step technique guidance. Make it encouraging for a ${memory.level} student and include a specific next practice step. Keep under 120 words.`;
         break;
-      case "THEORY":
-        specializedPrompt = `You are a dance historian. Explain the cultural significance of: ${message}
-Keep response under 100 words. Make it engaging for a ${memory.level} ${memory.style || detectedStyle} student.`;
-        break;
-      case "PRACTICE":
-        specializedPrompt = `You are a practice coach. Create a routine for: ${message}
-For ${memory.level} ${memory.style || detectedStyle} students. Include 3-4 key exercises. Mention that you have specific tutorial videos if they want to see demonstrations.`;
-        break;
-      case "RESOURCES":
-        // Enhanced resource selection based on query and detected style
-        const targetStyle = detectedStyle !== "NONE" ? detectedStyle : memory.style;
-        const keywords = message.toLowerCase().split(' ');
         
-        // Get resources for the target style
+      case "THEORY":
+        specializedPrompt = `You are a dance historian and cultural expert in ${currentStyle}.
+
+${contextPrefix}User asked: "${message}"
+User level: ${memory.level}
+
+Explain the cultural significance engagingly. Add encouragement for their ${memory.level} level and suggest how this knowledge helps their practice. Keep under 120 words.`;
+        break;
+        
+      case "PRACTICE":
+        specializedPrompt = `You are a dance practice coach for ${currentStyle}.
+
+${contextPrefix}User asked: "${message}"
+User level: ${memory.level}
+
+Create a structured practice routine with 3-4 exercises. Add encouragement for ${memory.level} level and mention you have tutorial videos available. Keep under 120 words.`;
+        break;
+        
+      case "RESOURCES":
+        // Get relevant resources
+        const targetStyle = detectedStyle !== "NONE" ? detectedStyle : memory.style;
         let relevantResources = [];
-        if (targetStyle) {
-          // First try to get style-specific resources
+        if (targetStyle && targetStyle !== "STYLES_OVERVIEW") {
           const styleResources = getResourcesByCategory(targetStyle, memory.level);
-          if (styleResources.length > 0) {
+          if (styleResources && styleResources.length > 0) {
             relevantResources = styleResources.slice(0, 3);
           } else {
-            // Try search if no direct resources found
+            const keywords = message.toLowerCase().split(' ');
             const searchResults = searchResources(targetStyle, memory.level, keywords);
             relevantResources = searchResults.slice(0, 3);
           }
         }
         
-        // If still no resources found, fall back to general resources
         if (relevantResources.length === 0) {
-          relevantResources = danceResources.General.slice(0, 3);
+          relevantResources = danceResources.General?.slice(0, 3) || [];
         }
         
         const styleDisplayName = targetStyle || "dance";
         
-        specializedPrompt = `You are a resource curator. Someone asked: "${message}"
+        specializedPrompt = `You are a resource curator. ${contextPrefix}User asked: "${message}"
 
-You MUST recommend these specific tutorials and include their exact URLs:
+Recommend these specific tutorials with exact URLs:
 
-${relevantResources.map(r => `**${r.title}**
-${r.url}
-${r.description}`).join('\n\n')}
+${relevantResources.map(r => `**${r.title}**\n${r.url}\n${r.description}`).join('\n\n')}
 
-Your response format:
-"Here are excellent ${styleDisplayName} tutorials for you:
+Format: "Here are excellent ${styleDisplayName} tutorials for you:\n\n**[Title]**\n[URL]\n[Why helpful]\n\n**[Title 2]**\n[URL 2]\n[Why helpful]"
 
-**[Resource Title]**
-[Full URL]
-[Why it's helpful]
-
-**[Resource Title 2]**
-[Full URL 2]
-[Why it's helpful]"
-
-You MUST copy the exact URLs from above. Do not modify them.`;
+Add encouragement for ${memory.level} level. Copy URLs exactly.`;
         break;
+        
       case "STYLES_OVERVIEW":
-        specializedPrompt = `You are a dance expert. The user asked: "${message}"
+        specializedPrompt = `You are a dance expert. ${contextPrefix}User asked: "${message}"
 
-Provide a brief overview of Indian dance styles:
+Provide overview of Indian dance styles:
 
-**Classical Dance Forms:**
-- Bharatanatyam (Tamil Nadu) - Temple dance with precise movements
-- Kathak (North India) - Storytelling dance with spins
-- Odissi (Odisha) - Sculptural poses and fluid movements
-- Kuchipudi (Andhra Pradesh) - Dramatic dance-drama
-- Manipuri (Manipur) - Graceful devotional dance
-- Mohiniyattam (Kerala) - Feminine classical dance
+**Classical:** Bharatanatyam (Tamil Nadu), Kathak (North India), Odissi (Odisha), Kuchipudi (Andhra Pradesh), Manipuri (Manipur), Mohiniyattam (Kerala)
 
-**Folk & Popular:**
-- Bhangra (Punjab) - Energetic harvest dance
-- Garba/Dandiya (Gujarat) - Festival circle dances
-- Bollywood - Film-inspired contemporary dance
+**Folk & Popular:** Bhangra (Punjab), Garba/Dandiya (Gujarat), Bollywood
 
-Ask which style interests them most for personalized recommendations!`;
+Ask which interests them for personalized recommendations! Keep encouraging.`;
         break;
+        
       default:
-        const currentStyle = memory.style || "Indian dance";
-        specializedPrompt = `You are NrityaAI, a friendly dance instructor. Respond warmly to: ${message}
-User is learning ${currentStyle} at ${memory.level} level. Always offer to share specific tutorial videos and resources to help them learn better!`;
-    }
+        specializedPrompt = `You are NrityaAI, a friendly dance instructor. ${contextPrefix}User said: "${message}"
 
-    const specializedRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: specializedPrompt });
+User profile: ${memory.level} level, learning ${currentStyle}
+
+Respond warmly and offer to share specific tutorial videos and resources. Keep encouraging and under 120 words.`;
+    }
     
-    // Agent 3: Response Enhancement & Personalization (skip for STYLES_OVERVIEW)
-    let finalResponse;
-    if (intent === "STYLES_OVERVIEW") {
-      finalResponse = specializedRes.response;
-    } else {
-      const enhancePrompt = `Take this dance instruction and make it more encouraging and personal:
-
-Original: ${specializedRes.response}
-
-Add:
-- Brief encouragement for ${memory.level} level
-- One specific next step
-- Keep total response under 120 words
-
-Enhanced response:`;
-      
-      const finalRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: enhancePrompt });
-      finalResponse = finalRes.response || "I'm here to help you learn Indian dance!";
-    }
+    const finalRes = await ai.run("@cf/meta/llama-3.1-8b-instruct", { prompt: specializedPrompt });
     
     return {
       intent,
       detectedStyle,
-      specializedResponse: specializedRes.response,
-      finalResponse,
-      workflow: "3-agent system: Style Detection → Intent → Specialization → Enhancement"
+      specializedResponse: finalRes.response,
+      finalResponse: finalRes.response || "I'm here to help you learn Indian dance!",
+      workflow: "Optimized 2-agent system: Analysis → Specialized Response + Enhancement"
     };
   },
 
@@ -205,7 +165,44 @@ Enhanced response:`;
         });
       }
 
-      const { message, userId } = await request.json() as { message: string; userId: string };
+      const body = await request.json() as { 
+        message?: string; 
+        userId: string; 
+        chatId?: number;
+        action?: string;
+        chats?: any[];
+      };
+      const { message, userId, action, chats } = body;
+      
+      // Handle chat management actions
+      if (action === 'getChats') {
+        const id = env.CHAT.idFromName(userId);
+        const chat = env.CHAT.get(id);
+        const chatsRes = await chat.fetch("https://example.com/chats", { method: "GET" });
+        const chatsData = await chatsRes.json();
+        return Response.json({ chats: chatsData }, {
+          headers: { "Access-Control-Allow-Origin": "*" }
+        });
+      }
+      
+      if (action === 'saveChats') {
+        const id = env.CHAT.idFromName(userId);
+        const chat = env.CHAT.get(id);
+        await chat.fetch("https://example.com/chats", {
+          method: "POST",
+          body: JSON.stringify(chats)
+        });
+        return Response.json({ success: true }, {
+          headers: { "Access-Control-Allow-Origin": "*" }
+        });
+      }
+      
+      if (!message) {
+        return Response.json({ error: 'Message required' }, { 
+          status: 400,
+          headers: { "Access-Control-Allow-Origin": "*" }
+        });
+      }
 
       // 1. Get Durable Object for persistent memory
       const id = env.CHAT.idFromName(userId);
@@ -219,17 +216,15 @@ Enhanced response:`;
       if (!memory.style) memory.style = null;
       if (!memory.level) memory.level = "Beginner";
       if (!memory.history) memory.history = [];
-      
-      console.log('Loaded memory for user:', userId, 'Style:', memory.style, 'Level:', memory.level, 'History length:', memory.history.length);
 
       // 3. Get relevant dance resources (only if style is set)
       const resources = memory.style ? getResourcesByCategory(memory.style, memory.level) || [] : [];
 
-      // 4. WORKFLOW: Multi-Agent Dance Instruction System
-      const workflow = await this.executeWorkflow(message, memory, resources, env.AI);
+      // 4. WORKFLOW: Optimized Multi-Agent Dance Instruction System
+      const workflow = await this.executeWorkflow(message, memory, [], env.AI);
       const reply = workflow.finalResponse;
 
-      // 6. Save conversation to memory (including any style updates)
+      // 5. Save conversation to memory (including any style updates)
       memory.history.push({ user: message, ai: reply });
       
       // Update style if it was detected and changed
@@ -240,14 +235,10 @@ Enhanced response:`;
       
       console.log('Saving memory for user:', userId, 'Style:', memory.style, 'History length:', memory.history.length);
       
-      const saveRes = await chat.fetch("https://example.com/memory", {
+      await chat.fetch("https://example.com/memory", {
         method: "POST",
         body: JSON.stringify(memory)
       });
-      
-      if (!saveRes.ok) {
-        console.error('Failed to save memory:', await saveRes.text());
-      }
 
       return Response.json({ reply }, {
         headers: {
