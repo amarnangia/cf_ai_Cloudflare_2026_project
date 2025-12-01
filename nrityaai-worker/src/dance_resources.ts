@@ -2,862 +2,582 @@ export const danceResources = {
   Bharatanatyam: {
     Beginner: [
       {
-        title: "Beginner Bharatanatyam Full Class – Kalakshetra Style",
+        title: "Bharatanatyam Basics for Beginners – Kalakshetra Style",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=Y9LZbM8cpvA",
+        url: "https://www.youtube.com/watch?v=VE_GFhewa7Y",
         category: "technique",
-        description: "Complete beginner class in traditional Kalakshetra style with proper foundation"
+        description: "Structured Bharatanatyam beginner class focusing on posture and basic movement."
       },
       {
-        title: "Bharatanatyam Adavus Level 1",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=5L9dlf9chOQ",
+        title: "Bharatanatyam Basic Steps – Full Playlist",
+        type: "Playlist",
+        url: "https://www.youtube.com/playlist?list=PLMl_TtqzKi707pwr3-D5Wl1hH4UbEctuj",
         category: "technique",
-        description: "Learn the fundamental adavus (basic steps) of Bharatanatyam"
+        description: "Complete playlist covering beginner Bharatanatyam adavus and hand movements."
       },
       {
-        title: "Bharatanatyam Warm-Up for Beginners",
+        title: "Aramandi Posture Explained",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=FLn7E5ZVWZQ",
+        url: "https://www.youtube.com/watch?v=5qedK4fc22w",
+        category: "technique",
+        description: "Correct sitting posture and leg positioning for Bharatanatyam."
+      },
+      {
+        title: "Asamyuta Hasta Mudras",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=HWmUan2P3UU",
+        category: "technique",
+        description: "Single-hand mudras used in Bharatanatyam storytelling."
+      },
+      {
+        title: "Beginner Natta Adavu Practice",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=OIKOHzePJCA",
         category: "practice",
-        description: "Essential warm-up exercises to prepare your body for Bharatanatyam practice"
+        description: "Guided Natta Adavu practice for beginners with counts."
       },
       {
         title: "Tatta Metta Adavu Tutorial",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=l-8CuF3LzBw",
+        url: "https://www.youtube.com/watch?v=MDabYz9V0SI",
         category: "technique",
-        description: "Step-by-step tutorial for one of the most fundamental Bharatanatyam adavus"
+        description: "Step-by-step tutorial covering the most fundamental Bharatanatyam footwork."
       },
       {
-        title: "Natta Adavu Step-by-Step",
+        title: "Bharatanatyam Daily Warm-Up Routine",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=6kHngKkU6uY",
-        category: "technique",
-        description: "Master the Natta adavu with detailed breakdown and practice tips"
-      },
-      {
-        title: "Visharu Adavu Beginner Lesson",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Ct1K_Dw5Ux8",
-        category: "technique",
-        description: "Learn the graceful Visharu adavu with proper hand and foot coordination"
-      },
-      {
-        title: "Bharatanatyam Basic Posture & Stance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=3pQq4s7jD5c",
-        category: "technique",
-        description: "Perfect your basic stance and aramandi position fundamental to all movements"
-      },
-      {
-        title: "Beginner Bharatanatyam Routine",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=w9gi4jz7RTs",
+        url: "https://www.youtube.com/watch?v=xWiVek0jghw",
         category: "practice",
-        description: "Complete practice routine combining multiple adavus for beginners"
+        description: "Daily conditioning and stretching routine for Bharatanatyam beginners."
       },
       {
-        title: "Learn Bharatanatyam at Home – Full Course",
-        type: "Playlist",
-        url: "https://www.youtube.com/playlist?list=PLu8n5hHk4TnVemGxoI5gFjJ7bydc3gEHM",
-        category: "resources",
-        description: "Comprehensive playlist for learning Bharatanatyam from home"
-      },
-      {
-        title: "Bharatanatyam Footwork Drills",
+        title: "Beginner Bharatanatyam Dance Choreography",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=pS5SY8XnFZg",
+        url: "https://www.youtube.com/watch?v=FAkM6HJdYjM",
+        category: "technique",
+        description: "Easy beginner Bharatanatyam dance sequence for practice."
+      },
+      {
+        title: "Bharatanatyam Eye & Neck Movements",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=wx1M6qlX1xE",
+        category: "technique",
+        description: "Learn Drishti Bheda (eye) and neck movements."
+      },
+      {
+        title: "Bharatanatyam Beginner Practice Session",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=JWhOuHF61q8",
         category: "practice",
-        description: "Essential footwork exercises to build strength and precision"
-      },
-      {
-        title: "Bharatanatyam Hand Gestures (Mudras)",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=8H-1xG4k5CM",
-        category: "technique",
-        description: "Master the essential single and double hand gestures used in storytelling"
-      },
-      {
-        title: "Beginner Thattimettu Adavu",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ZXjPi0BvF6k",
-        category: "technique",
-        description: "Learn the rhythmic Thattimettu adavu with proper timing"
-      },
-      {
-        title: "Bharatanatyam Practice Session",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=FhOp1pQaWqE",
-        category: "practice",
-        description: "Follow along practice session for regular skill development"
-      },
-      {
-        title: "Bharatanatyam Expressional Training",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=A_9po_x4yOM",
-        category: "technique",
-        description: "Introduction to facial expressions and basic abhinaya"
-      },
-      {
-        title: "Beginner Bharatanatyam Tillana",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=t0q9MAs3tX0",
-        category: "technique",
-        description: "Learn a simple tillana composition for beginners"
-      },
-      {
-        title: "Bharatanatyam Abhinaya Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=3DUGguK-j4k",
-        category: "technique",
-        description: "Foundation of storytelling through expressions and gestures"
-      },
-      {
-        title: "Bharatanatyam Rhythm Training",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=TS1L6r1s7a8",
-        category: "practice",
-        description: "Develop your sense of rhythm and timing in Bharatanatyam"
-      },
-      {
-        title: "Bharatanatyam Solo Practice",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=7kGF7w4K5KQ",
-        category: "practice",
-        description: "Independent practice techniques for self-improvement"
-      },
-      {
-        title: "Bharatanatyam Beginner Choreography",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=WBxE4dDjGxA",
-        category: "technique",
-        description: "Simple choreography combining basic elements"
-      },
-      {
-        title: "Bharatanatyam Online School",
-        type: "Website",
-        url: "https://www.bharatanatyamschool.com",
-        category: "resources",
-        description: "Comprehensive online learning platform for Bharatanatyam"
+        description: "Full follow-along beginner practice class."
       }
     ],
+
     Intermediate: [
       {
-        title: "Bharatanatyam Jathis and Complex Rhythms",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=L_jWHffIx5E",
+        title: "Bharatanatyam Intermediate Adavus Playlist",
+        type: "Playlist",
+        url: "https://www.youtube.com/playlist?list=PLvYDeprmEs59Sf4aj4mart8dMmG5BBa_O",
         category: "technique",
-        description: "Learn intricate rhythmic patterns and their execution in Bharatanatyam"
+        description: "Intermediate-level adavus and combining sequences."
       },
       {
-        title: "Abhinaya - Facial Expressions Tutorial",
+        title: "Understanding Bharatanatyam Alarippu",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-        category: "technique",
-        description: "Master the art of storytelling through facial expressions and emotions"
-      },
-      {
-        title: "Varnam Structure and Performance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=astISOttCQ0",
+        url: "https://www.youtube.com/watch?v=0X2u8wS6zFc",
         category: "theory",
-        description: "Understand the centerpiece of Bharatanatyam repertoire and its components"
+        description: "Structure and performance breakdown of Alarippu."
+      },
+      {
+        title: "Bharatanatyam Basic Abhinaya Training",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=Rx9qtA-yThQ",
+        category: "technique",
+        description: "Facial expression training for storytelling."
+      },
+      {
+        title: "Bharatanatyam Rhythm Training for Dancers",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=r4LyOQn8VeY",
+        category: "practice",
+        description: "Understanding Carnatic rhythm for dance timing."
       }
     ],
+
     Advanced: [
       {
-        title: "Tillana - Advanced Choreography",
+        title: "Advanced Bharatanatyam Varnam Performance",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=hFZFjoX2cGg",
+        url: "https://www.youtube.com/watch?v=lL0P9NhcbvU",
         category: "technique",
-        description: "Master the pure dance finale with complex rhythmic patterns and movements"
+        description: "Full-length Bharatanatyam Varnam by professional artist."
       },
       {
-        title: "Padam - Advanced Abhinaya",
+        title: "Advanced Abhinaya & Padam Performance",
         type: "Video",
-        url: "https://www.youtube.com/watch?v=SQoA_wjmE9w",
+        url: "https://www.youtube.com/watch?v=6QshPrWyG6k",
         category: "technique",
-        description: "Explore sophisticated emotional expression in devotional compositions"
-      }
-    ]
-  },
-  Kathak: {
-    Beginner: [
-      {
-        title: "Kathak Beginner Full Class",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=3t0bGZ4LJkE",
-        category: "technique",
-        description: "Complete beginner class covering fundamental Kathak techniques"
+        description: "Advanced expressive Bharatanatyam storytelling."
       },
       {
-        title: "Kathak Tat Te Tod Beginner Lesson",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=mpc3Qfy5slk",
-        category: "technique",
-        description: "Learn the basic Kathak rhythmic patterns and syllables"
-      },
-      {
-        title: "Learn Kathak Spins (Chakkars)",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Yn_HzCJg3Fg",
-        category: "technique",
-        description: "Master the signature spinning technique of Kathak dance"
-      },
-      {
-        title: "Kathak Footwork for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=w5rxwL7n6eA",
-        category: "technique",
-        description: "Foundation footwork patterns and positions in Kathak"
-      },
-      {
-        title: "Beginner Kathak Tukdas",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=MlM5E_EPIpY",
-        category: "technique",
-        description: "Learn simple tukdas (rhythmic compositions) for beginners"
-      },
-      {
-        title: "Kathak Hand Movements",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=8kDgWy7Rdxg",
-        category: "technique",
-        description: "Master graceful hand movements and gestures in Kathak style"
-      },
-      {
-        title: "Beginner Kathak Clothing & Posture",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ToZTsf9J2pU",
-        category: "resources",
-        description: "Learn about proper attire and basic posture for Kathak"
-      },
-      {
-        title: "Kathak Rhythm Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=TCtMc6ZgA4c",
-        category: "theory",
-        description: "Understanding rhythm and tala in Kathak dance"
-      },
-      {
-        title: "Beginner Kathak Tihai",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=2a4yPL-2F8U",
-        category: "technique",
-        description: "Learn the concept and execution of tihai in Kathak"
-      },
-      {
-        title: "Kathak Daily Practice Drills",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=-00w1JS3YsA",
-        category: "practice",
-        description: "Essential daily exercises for Kathak skill development"
-      },
-      {
-        title: "Kathak Online Beginner Course",
+        title: "Natyasutra Online Bharatanatyam School",
         type: "Website",
-        url: "https://nrityashala.com",
+        url: "https://www.natyasutraonline.com",
         category: "resources",
-        description: "Structured online learning platform for Kathak beginners"
-      },
-      {
-        title: "Learn Kathak at Home Playlist",
-        type: "Playlist",
-        url: "https://www.youtube.com/playlist?list=PLmOMnJk6zo3ZhGmJXoW0zKyO6Lk96mR63",
-        category: "resources",
-        description: "Comprehensive playlist for home-based Kathak learning"
-      },
-      {
-        title: "Beginner Kathak Expressions",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=24YpFmE6MIw",
-        category: "technique",
-        description: "Introduction to facial expressions and abhinaya in Kathak"
-      },
-      {
-        title: "Kathak Gharana Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=WCDA_DAypYs",
-        category: "theory",
-        description: "Understanding different Kathak gharanas and their characteristics"
-      },
-      {
-        title: "Beginner Kathak Choreography",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=0YtC3D8n9OM",
-        category: "technique",
-        description: "Simple choreography combining basic Kathak elements"
-      },
-      {
-        title: "Kathak Speed Control Practice",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=tZcygVdSwwU",
-        category: "practice",
-        description: "Develop control over tempo and speed variations"
-      },
-      {
-        title: "Kathak Tatkaar Level 1",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=UWBRMoShdLU",
-        category: "technique",
-        description: "Master the fundamental tatkaar (footwork) patterns"
-      },
-      {
-        title: "Kathak Beginner Performance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=GLBbwIbC5Ho",
-        category: "technique",
-        description: "Complete beginner performance piece for practice"
-      },
-      {
-        title: "Kathak Hand & Eye Coordination",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=MeH97t5KujY",
-        category: "practice",
-        description: "Develop coordination between hand movements and eye expressions"
-      },
-      {
-        title: "Learn Kathak Online Academy",
-        type: "Website",
-        url: "https://www.kathakonlineschool.com",
-        category: "resources",
-        description: "Professional online academy for systematic Kathak learning"
-      }
-    ],
-    Intermediate: [
-      {
-        title: "Kathak Tukras and Todas",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Sagg08DrO5k",
-        category: "technique",
-        description: "Learn dynamic rhythmic compositions and their variations"
-      },
-      {
-        title: "Kathak Thumri and Bhajan Performance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=kXYiU_JCYtU",
-        category: "technique",
-        description: "Explore expressive storytelling in devotional Kathak pieces"
-      },
-      {
-        title: "Advanced Chakkars and Pirouettes",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-        category: "technique",
-        description: "Perfect multiple spins and complex turning sequences"
-      }
-    ],
-    Advanced: [
-      {
-        title: "Kathak Tarana - Pure Dance Mastery",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4",
-        category: "technique",
-        description: "Master the pinnacle of Kathak technical excellence"
-      },
-      {
-        title: "Kathak Improvisation Techniques",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=EE-xtCF3T94",
-        category: "technique",
-        description: "Learn to create spontaneous compositions within traditional framework"
+        description: "Professional structured Bharatanatyam online training platform."
       }
     ]
   },
-  Odissi: {
-    Beginner: [
-      {
-        title: "Odissi Beginner Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=QdmEPm0y2vU",
-        category: "technique",
-        description: "Foundation techniques and movements in Odissi dance"
-      },
-      {
-        title: "Odissi Chowk & Tribhangi Stance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=8F0sP_r9kAQ",
-        category: "technique",
-        description: "Master the characteristic square stance and triple-bend posture"
-      },
-      {
-        title: "Odissi Footwork Beginner",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=h77TXWJ9ht4",
-        category: "technique",
-        description: "Basic footwork patterns and movements in Odissi"
-      },
-      {
-        title: "Odissi Hand Gestures",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=5R5PIPnqM0U",
-        category: "technique",
-        description: "Learn the graceful hand gestures specific to Odissi"
-      },
-      {
-        title: "Odissi Rhythm Training",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=HdYmvzv8nVs",
-        category: "practice",
-        description: "Develop rhythmic sense for Odissi dance"
-      },
-      {
-        title: "Odissi Mangalacharan for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=9GJ5QKAE1p8",
-        category: "technique",
-        description: "Learn the traditional opening invocation piece"
-      },
-      {
-        title: "Odissi Daily Warm-Up",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=HT4Y1zwPW8A",
-        category: "practice",
-        description: "Essential warm-up exercises for Odissi practice"
-      },
-      {
-        title: "Odissi Expression Training",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=6ENZGdXvJGQ",
-        category: "technique",
-        description: "Introduction to facial expressions in Odissi"
-      },
-      {
-        title: "Learn Odissi from Home Full Course",
-        type: "Playlist",
-        url: "https://www.youtube.com/playlist?list=PLfbP6mi6aPbjsmtujtsphwzRPSsO6v2uJ",
-        category: "resources",
-        description: "Comprehensive home learning course for Odissi"
-      },
-      {
-        title: "Odissi Beginner Pallavi",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=w48n7G4cPjY",
-        category: "technique",
-        description: "Learn a simple pallavi (pure dance) composition"
-      },
-      {
-        title: "Odissi Hand & Eye Control",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=EV28fU7p9ks",
-        category: "practice",
-        description: "Develop coordination between hand and eye movements"
-      },
-      {
-        title: "Odissi Costume & Makeup Guide",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=2c7dzGGQ_iM",
-        category: "resources",
-        description: "Traditional costume and makeup for Odissi performances"
-      },
-      {
-        title: "Odissi Choreography for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=FZLmeZf1U5U",
-        category: "technique",
-        description: "Simple choreographic piece for beginner practice"
-      },
-      {
-        title: "Odissi Basic Theory",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=g4w7YbrTVxM",
-        category: "theory",
-        description: "Understanding the history and philosophy of Odissi"
-      },
-      {
-        title: "Odissi Online Learning Platform",
-        type: "Website",
-        url: "https://www.odissionline.com",
-        category: "resources",
-        description: "Dedicated platform for online Odissi education"
-      }
-    ]
-  },
-  Kuchipudi: {
-    Beginner: [
-      {
-        title: "Kuchipudi Beginner Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=7m1rHgx1lZ8",
-        category: "technique",
-        description: "Foundation movements and techniques in Kuchipudi"
-      },
-      {
-        title: "Kuchipudi Adavus Level 1",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=MBTfNwN4s4U",
-        category: "technique",
-        description: "Basic adavus (steps) specific to Kuchipudi style"
-      },
-      {
-        title: "Kuchipudi Warm-Up",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=xx8z5k0kKvg",
-        category: "practice",
-        description: "Proper warm-up routine for Kuchipudi practice"
-      },
-      {
-        title: "Kuchipudi Hand Movements",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Qwz0y5m8b1w",
-        category: "technique",
-        description: "Graceful hand movements characteristic of Kuchipudi"
-      },
-      {
-        title: "Kuchipudi Footwork Drills",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=tsRPGjz7Zjs",
-        category: "practice",
-        description: "Essential footwork exercises for Kuchipudi"
-      },
-      {
-        title: "Kuchipudi Beginner Choreography",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=KFOdeyw6n2Y",
-        category: "technique",
-        description: "Simple choreographic piece for beginners"
-      },
-      {
-        title: "Kuchipudi Abhinaya Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Eq1ZkqI7nA4",
-        category: "technique",
-        description: "Introduction to storytelling through expressions"
-      },
-      {
-        title: "Kuchipudi Expressional Training",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=K0w8U3tbS68",
-        category: "technique",
-        description: "Develop facial expressions for Kuchipudi performance"
-      },
-      {
-        title: "Learn Kuchipudi at Home",
-        type: "Playlist",
-        url: "https://www.youtube.com/playlist?list=PLdPVM4n_JaCk4mj00oBBz1XAn_wlKn8Ia",
-        category: "resources",
-        description: "Home learning playlist for Kuchipudi dance"
-      },
-      {
-        title: "Kuchipudi Daily Practice",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=To4N_ScxXys",
-        category: "practice",
-        description: "Daily practice routine for skill development"
-      },
-      {
-        title: "Kuchipudi Beginner Performance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=jGvVIEtnskM",
-        category: "technique",
-        description: "Complete beginner performance piece"
-      },
-      {
-        title: "Kuchipudi Rhythm Control",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=8l9ZkJGhN5U",
-        category: "practice",
-        description: "Develop rhythmic precision in Kuchipudi"
-      },
-      {
-        title: "Kuchipudi Costume Guide",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=RPSz5r5Dg4o",
-        category: "resources",
-        description: "Traditional costume and accessories for Kuchipudi"
-      },
-      {
-        title: "Kuchipudi Mudras",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=Yxg4M4CN0e4",
-        category: "technique",
-        description: "Hand gestures and mudras in Kuchipudi style"
-      },
-      {
-        title: "Kuchipudi Online School",
-        type: "Website",
-        url: "https://www.kuchipudionline.com",
-        category: "resources",
-        description: "Professional online platform for Kuchipudi learning"
-      }
-    ]
-  },
-  Bollywood: {
-    Beginner: [
-      {
-        title: "Bollywood Dance Beginner Class",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ItM8F9uHJfA",
-        category: "technique",
-        description: "Complete beginner class for Bollywood dance"
-      },
-      {
-        title: "Bollywood Grooves for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=iK8PTeL9IM4",
-        category: "technique",
-        description: "Learn popular Bollywood dance moves and grooves"
-      },
-      {
-        title: "Bollywood Hip-Hop Fusion",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=lh5st6IsMvw",
-        category: "technique",
-        description: "Modern fusion of Bollywood and hip-hop styles"
-      },
-      {
-        title: "Indian Wedding Dance for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=kTQn7p7BLOk",
-        category: "technique",
-        description: "Perfect dance moves for wedding celebrations"
-      },
-      {
-        title: "Indian Semi-Classical Dance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=G2_5NZq9Ero",
-        category: "technique",
-        description: "Semi-classical style combining traditional and modern elements"
-      },
-      {
-        title: "Indian Contemporary Dance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=4P3OHxTdtqM",
-        category: "technique",
-        description: "Modern contemporary style with Indian influences"
-      },
-      {
-        title: "Semi-Classical Choreography",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=EGJBO07MFWk",
-        category: "technique",
-        description: "Blend of classical and contemporary Indian dance"
-      },
-      {
-        title: "South Indian Cinematic Dance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=bcxUqlLZ7Zs",
-        category: "technique",
-        description: "Popular moves from South Indian cinema"
-      },
-      {
-        title: "Bollywood Warm-Up Routine",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=q6d2V_TlA-s",
-        category: "practice",
-        description: "Energetic warm-up for Bollywood dance sessions"
-      },
-      {
-        title: "Indian Dance Fitness",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=v6W1soq5Mko",
-        category: "practice",
-        description: "Fun fitness workout using Bollywood dance moves"
-      }
-    ]
-  },
-  Folk: {
-    Beginner: [
-      {
-        title: "Garba Beginner Steps",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=j9G3mMNH9os",
-        category: "technique",
-        description: "Traditional Gujarati Garba dance steps for beginners"
-      },
-      {
-        title: "Dandiya Raas for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=K3Z_sCINx8M",
-        category: "technique",
-        description: "Learn the stick dance of Gujarat with basic patterns"
-      },
-      {
-        title: "Bhangra Beginner Tutorial",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=jq0Jmx3Mxyg",
-        category: "technique",
-        description: "Energetic Punjabi folk dance moves for beginners"
-      },
-      {
-        title: "Giddha Beginner Dance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=9XYtV0_h7ME",
-        category: "technique",
-        description: "Traditional Punjabi women's folk dance"
-      },
-      {
-        title: "Lavani Beginner Dance",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=QnFbm04QbEU",
-        category: "technique",
-        description: "Maharashtrian folk dance with rhythmic movements"
-      },
-      {
-        title: "Kalbelia Dance Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=FQFRbSBypjc",
-        category: "technique",
-        description: "Rajasthani snake charmer community dance"
-      },
-      {
-        title: "Rajasthani Ghoomar Steps",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=0dZmMLpLwqE",
-        category: "technique",
-        description: "Graceful spinning dance of Rajasthan"
-      },
-      {
-        title: "Folk Dance Compilation for Beginners",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=qxAkGYGUiZc",
-        category: "technique",
-        description: "Various Indian folk dances in one tutorial"
-      },
-      {
-        title: "Folk Dance Workout",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=yEvfl5DTz4U",
-        category: "practice",
-        description: "Fitness routine using folk dance movements"
-      }
-    ]
-  },
-  Other: {
-    Beginner: [
-      {
-        title: "Manipuri Dance Beginner Lesson",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=nuMRZtW7mMc",
-        category: "technique",
-        description: "Graceful dance form from Manipur state"
-      },
-      {
-        title: "Mohiniyattam Beginner Class",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=nPMX_xNpivg",
-        category: "technique",
-        description: "Classical dance of Kerala with feminine grace"
-      },
-      {
-        title: "Sattriya Dance Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=E8VX0JO5O9Q",
-        category: "technique",
-        description: "Assamese classical dance fundamentals"
-      },
-      {
-        title: "Chhau Dance Foundation",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=BYyGbIPuKpY",
-        category: "technique",
-        description: "Martial arts-influenced dance from Eastern India"
-      },
-      {
-        title: "Yakshagana Dance Intro",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=ZkO3wJy6tAg",
-        category: "technique",
-        description: "Traditional theater-dance form of Karnataka"
-      },
-      {
-        title: "Manipuri Ras Leela Basics",
-        type: "Video",
-        url: "https://www.youtube.com/watch?v=RsdSCwv2dz8",
-        category: "technique",
-        description: "Devotional dance depicting Krishna's stories"
-      }
-    ]
-  },
+
   General: [
     {
-      title: "Indian Classical Dance Comparison Guide",
+      title: "Indian Classical Dance Forms – Overview",
       type: "Article",
-      url: "https://www.culturalindia.net/indian-dance/classical-dance.html",
+      url: "https://www.britannica.com/art/Indian-dance",
       category: "theory",
-      description: "Compare different Indian classical dance forms and their unique characteristics"
+      description: "Comprehensive overview of Indian classical dance forms and their characteristics."
     },
     {
-      title: "Carnatic Music for Dancers",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=r4LyOQn8VeY",
-      category: "theory",
-      description: "Understand the musical foundation that accompanies Indian classical dance"
-    },
-    {
-      title: "Dance Costume and Makeup Tutorial",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=M7lc1UVf-VE",
-      category: "practice",
-      description: "Learn traditional costume wearing and stage makeup techniques"
-    },
-    {
-      title: "Injury Prevention for Dancers",
-      type: "Article",
-      url: "https://www.dancemagazine.com/injury-prevention-2306844020.html",
-      category: "practice",
-      description: "Essential tips for maintaining dancer health and preventing common injuries"
-    },
-    {
-      title: "Beginner Indian Dance Playlist",
-      type: "Playlist",
-      url: "https://www.youtube.com/playlist?list=PLqG9pLRnt1L4s2U1u7PFfmjwHy3Y-1Yrt",
-      category: "resources",
-      description: "Curated playlist of beginner-friendly Indian dance tutorials"
-    },
-    {
-      title: "Indian Dance Theory Crash Course",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=HRrP4Wm0OYg",
-      category: "theory",
-      description: "Quick overview of Indian dance history and philosophy"
-    },
-    {
-      title: "Indian Dance Mudra Dictionary",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=gwR2qRkF1jQ",
-      category: "technique",
-      description: "Comprehensive guide to hand gestures across dance forms"
-    },
-    {
-      title: "Beginner Indian Dance Performances",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=2aJbO_wl1Lc",
-      category: "technique",
-      description: "Inspiring performances for beginner dancers"
-    },
-    {
-      title: "Official Sangeet Natak Akademi Dance Portal",
+      title: "Sangeet Natak Akademi – Official Portal",
       type: "Website",
       url: "https://sangeetnatak.gov.in",
       category: "resources",
-      description: "Official government portal for Indian performing arts"
-    }
-  ]
-};
+      description: "Government portal for Indian classical performing arts."
+    },
+  ],
+  Kathak: {
+    Beginner: [
+      {
+        title: "Kathak Basics for Beginners – Full Intro Class",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=3ZBz5v5v8fQ",
+        category: "technique",
+        description: "Complete beginner Kathak class covering posture, footwork, and hand movements."
+      },
+      {
+        title: "Kathak Tatkaar (Footwork) Level 1",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=UWBRMoShdLU",
+        category: "technique",
+        description: "Beginner-level Tatkaar practice with rhythmic counting."
+      },
+      {
+        title: "Kathak Chakkars (Spins) for Beginners",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=Yn_HzCJg3Fg",
+        category: "technique",
+        description: "Step-by-step guide to Kathak spins with balance control."
+      },
+      {
+        title: "Kathak Hand Movements & Posture",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=8kDgWy7Rdxg",
+        category: "technique",
+        description: "Learn correct arm positioning, hand gestures, and upper-body posture."
+      },
+      {
+        title: "Kathak Daily Practice Routine for Beginners",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=-00w1JS3YsA",
+        category: "practice",
+        description: "Structured daily practice routine for beginners."
+      },
+      {
+        title: "Kathak Rhythm Basics (Teentaal)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=TCtMc6ZgA4c",
+        category: "theory",
+        description: "Learn how rhythm and Teentaal work in Kathak dance."
+      },
+      {
+        title: "Kathak Tihai for Beginners",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=2a4yPL-2F8U",
+        category: "technique",
+        description: "Learn how to perform a basic Kathak tihai (ending pattern)."
+      },
+      {
+        title: "Beginner Kathak Dance Choreography",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=0YtC3D8n9OM",
+        category: "technique",
+        description: "Easy beginner choreography combining footwork and spins."
+      },
+      {
+        title: "Introduction to Kathak Abhinaya",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=24YpFmE6MIw",
+        category: "technique",
+        description: "Basic facial expressions and storytelling in Kathak."
+      },
+      {
+        title: "Learn Kathak at Home – Beginner Playlist",
+        type: "Playlist",
+        url: "https://www.youtube.com/playlist?list=PLmOMnJk6zo3ZhGmJXoW0zKyO6Lk96mR63",
+        category: "resources",
+        description: "Structured playlist for complete home training in Kathak."
+      }
+    ],
 
-// Helper function to get resources by category and level
-export function getResourcesByCategory(style: string, level: string, category?: string) {
-  const styleResources = danceResources[style as keyof typeof danceResources];
-  if (!styleResources) return [];
-  
-  let resources = [];
-  
-  if (Array.isArray(styleResources)) {
-    // General resources
-    resources = styleResources;
-  } else {
-    // Style-specific resources by level
-    resources = styleResources[level as keyof typeof styleResources] || [];
-  }
-  
-  if (category) {
-    resources = resources.filter(resource => resource.category === category);
-  }
-  
-  return resources;
+    Intermediate: [
+      {
+        title: "Kathak Tukras & Todas – Intermediate Level",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=Sagg08DrO5k",
+        category: "technique",
+        description: "Dynamic rhythmic compositions used in intermediate Kathak."
+      },
+      {
+        title: "Kathak Speed Control & Layakari",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=tZcygVdSwwU",
+        category: "practice",
+        description: "Develop tempo control and advanced rhythm handling."
+      },
+      {
+        title: "Kathak Gharanas Explained",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=WCDA_DAypYs",
+        category: "theory",
+        description: "Understand the Lucknow, Jaipur, and Banaras gharanas."
+      },
+      {
+        title: "Kathak Expressional Storytelling",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=kXYiU_JCYtU",
+        category: "technique",
+        description: "Intermediate-level abhinaya using Thumri and Bhajan."
+      }
+    ],
+
+    Advanced: [
+      {
+        title: "Kathak Tarana – Advanced Performance",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4",
+        category: "technique",
+        description: "High-speed pure dance Tarana performed by professional artists."
+      },
+      {
+        title: "Advanced Kathak Chakkars & Pirouettes",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+        category: "technique",
+        description: "Multiple continuous spins with advanced spotting control."
+      },
+      {
+        title: "Nrityashala Kathak Online Academy",
+        type: "Website",
+        url: "https://nrityashala.com",
+        category: "resources",
+        description: "Professional online Kathak training school with certification programs."
+      }
+    ]
+  },
+    Bhangra: {
+    Beginner: [
+      {
+        title: "Bhangra Basics for Beginners – Full Intro Class",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=ZkNMZlkrzaU",
+        category: "technique",
+        description: "Complete beginner introduction to basic Bhangra movements and posture."
+      },
+      {
+        title: "Bhangra Basic Step Tutorial (Shoulder Bounces & Thappi)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=9Hu9K9Yc1U4",
+        category: "technique",
+        description: "Learn shoulder bounces, thappi, and rhythm basics."
+      },
+      {
+        title: "Bhangra Footwork for Beginners",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=0dE2U5Pk6xY",
+        category: "technique",
+        description: "Foundational Bhangra feet patterns with counts."
+      },
+      {
+        title: "Beginner Bhangra Groove & Bounce Training",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=5T9ZbqWZcEg",
+        category: "practice",
+        description: "Groove training to help you stay on beat."
+      },
+      {
+        title: "Bhangra Salami & Jhummar Basics",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=3B6rJfV9eMY",
+        category: "technique",
+        description: "Two classic foundational Bhangra moves broken down."
+      },
+      {
+        title: "Beginner Bhangra Choreography Tutorial",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=YcB_hHzkI0w",
+        category: "technique",
+        description: "Simple choreography combining multiple beginner steps."
+      },
+      {
+        title: "Bhangra Cardio Beginner Follow Along",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=Kh3n2z3VYpQ",
+        category: "practice",
+        description: "Follow-along Bhangra workout built on basic movements."
+      },
+      {
+        title: "Learn Bhangra at Home – Beginner Playlist",
+        type: "Playlist",
+        url: "https://www.youtube.com/playlist?list=PL9w7Z2HcQm3Nn_d49iAEV9yfcHWWtH7IM",
+        category: "resources",
+        description: "Structured beginner Bhangra playlist with step-by-step lessons."
+      }
+    ],
+
+    Intermediate: [
+      {
+        title: "Intermediate Bhangra Footwork & Transitions",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=9qE0mPe4a4A",
+        category: "technique",
+        description: "Combining footwork with faster tempo transitions."
+      },
+      {
+        title: "Bhangra Formations & Team Spacing",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=x-jkKpLf8pE",
+        category: "theory",
+        description: "How dancers maintain spacing in group Bhangra."
+      },
+      {
+        title: "Intermediate Bhangra Choreography Tutorial",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=8Kp2wO3DdUc",
+        category: "technique",
+        description: "Faster-paced choreography with directional changes."
+      }
+    ],
+
+    Advanced: [
+      {
+        title: "Bhangra Empire – World Championship Performance",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=Zt2YwZ6R_5A",
+        category: "technique",
+        description: "Elite competitive Bhangra performance with advanced power and formations."
+      },
+      {
+        title: "Advanced Live Bhangra Set Performance",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=E6mNqR7n6SY",
+        category: "technique",
+        description: "High-speed live show performance with traditional and fusion elements."
+      },
+      {
+        title: "Bhangra Empire Official Training Platform",
+        type: "Website",
+        url: "https://www.instagram.com/bhangraempire",
+        category: "resources",
+        description: "Professional Bhangra training programs and performance prep."
+      }
+    ]
+  },
+    Tollywood: {
+    Beginner: [
+      {
+        title: "Tollywood Dance Performance (Easy Steps)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=ThDGeANkWqk",
+        category: "technique",
+        description: "An easy-steps Tollywood dance tutorial — good for beginners learning basic film-style moves."
+      },
+      {
+        title: "3 Basic Dance Steps For Beginners (Telugu Tutorial)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=ek_WtbbuB2g",
+        category: "technique",
+        description: "Simple Telugu-language dance class teaching three basic moves — ideal first lesson."
+      },
+      {
+        title: "Basic Dance Steps for Beginners – Telugu Dance Tutorial",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=bKmAj6V5JhE",
+        category: "technique",
+        description: "Introductory Telugu dance tutorial covering fundamental steps and rhythm."
+      },
+      {
+        title: "20 minutes Telugu Dance Workout | Allu Arjun Special",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=rFutxLrFBBA",
+        category: "practice",
+        description: "A short workout-style Tollywood dance session to get comfortable with movement and stamina."
+      },
+      {
+        title: "Tollywood Dance Course – Groove to the Beats of Telugu Cinema",
+        type: "Website",
+        url: "https://infyni.com/course/tollywood-dance-course-groove-to-the-beats-of-telugu-cinema",
+        category: "resources",
+        description: "Online course platform offering Tollywood dance lessons for beginners and enthusiasts."
+      }
+    ],
+
+    Intermediate: [
+      {
+        title: "Tollywood Choreography – “Ramuloo Ramulaa” (Telugu Film Dance)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=7yMqjB3Igpo",
+        category: "technique",
+        description: "Popular Tollywood song dance choreography — good for intermediate dancers learning timing and flow."
+      }
+    ],
+
+    Advanced: [
+      {
+        title: "Tollywood Dance – Allu Arjun Special Moves & Workout",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=H55x383y7BY",
+        category: "technique",
+        description: "Advanced moves and high-energy Tollywood dance tutorial for experienced dancers."
+      }
+    ]
+  },
+    Bollywood: {
+    Beginner: [
+      {
+        title: "Bollywood Dance for Beginners – Full Body Warm-Up & Basics",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=ZQmZfU7s5sk",
+        category: "practice",
+        description: "Beginner-friendly Bollywood warm-up and groove training."
+      },
+      {
+        title: "Bollywood Basic Steps Tutorial (Team Naach)",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=KfNpWZrDKoU",
+        category: "technique",
+        description: "Popular beginner Bollywood steps taught by Team Naach."
+      },
+      {
+        title: "Bollywood Dance Workout for Beginners",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=2mQkpJk0rGM",
+        category: "practice",
+        description: "Low-impact Bollywood cardio dance workout for beginners."
+      },
+      {
+        title: "Bollywood Hand Movements & Expressions",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=3tGqK48ZkVI",
+        category: "technique",
+        description: "Basic Bollywood gestures, facial expressions, and arm flow."
+      },
+      {
+        title: "Beginner Bollywood Choreography – Easy Routine",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=RZVJYk6w8Jk",
+        category: "technique",
+        description: "Simple beginner-friendly Bollywood choreography."
+      },
+      {
+        title: "Bollywood Dance Academy Online",
+        type: "Website",
+        url: "https://www.udemy.com/topic/bollywood-dance/",
+        category: "resources",
+        description: "Online Bollywood dance courses and tutorials."
+      },
+      {
+        title: "Shiamak Davar Online Dance Classes",
+        type: "Website",
+        url: "https://www.shiamak.com",
+        category: "resources",
+        description: "Professional Bollywood and contemporary training academy."
+      },
+      {
+        title: "Bollywood for Beginners – Step-by-Step Playlist",
+        type: "Playlist",
+        url: "https://www.youtube.com/playlist?list=PL9w7Z2HcQm3P_h_9l8jyEBfU4P8F6nYl4",
+        category: "resources",
+        description: "Step-by-step beginner Bollywood lessons."
+      }
+    ],
+
+    Intermediate: [
+      {
+        title: "Intermediate Bollywood Footwork & Transitions",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=9R4Wq-dw9iE",
+        category: "technique",
+        description: "Improving foot speed, transitions, and directional control."
+      },
+      {
+        title: "Team Naach Intermediate Bollywood Choreography",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=QzZz1XzJ4zE",
+        category: "technique",
+        description: "Faster-paced Bollywood choreography by Team Naach."
+      },
+      {
+        title: "Bollywood Expression & Performance Training",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=K6M9L8m_JxQ",
+        category: "technique",
+        description: "Training for stage presence and expressive performance."
+      },
+      {
+        title: "Bollywood Song Choreography – Full Routine",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=6g9Kp4s8CDo",
+        category: "practice",
+        description: "Intermediate full-song Bollywood choreography practice."
+      }
+    ],
+
+    Advanced: [
+      {
+        title: "Advanced Bollywood Stage Performance",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=NwFfH8p7S6A",
+        category: "technique",
+        description: "Professional-level Bollywood stage choreography."
+      },
+      {
+        title: "Shiamak Davar Advanced Bollywood Training Program",
+        type: "Website",
+        url: "https://www.shiamak.com/online-classes",
+        category: "resources",
+        description: "Advanced structured Bollywood performance training."
+      },
+      {
+        title: "Advanced Bollywood Dance Training",
+        type: "Website",
+        url: "https://www.udemy.com/course/bollywood-dance-masterclass/",
+        category: "resources",
+        description: "Advanced Bollywood choreography and performance programs."
+      }
+    ]
+  },
+
 }
+
+
+
+// Helper function to get resources by category and level 
+export function getResourcesByCategory(style: string, level: string, category?: string) { 
+  const styleResources = danceResources[style as keyof typeof danceResources]; 
+  if (!styleResources) return []; let resources = []; 
+  if (Array.isArray(styleResources)) { 
+    // General resources 
+    resources = styleResources; } 
+  else { 
+    // Style-specific resources by level 
+    resources = styleResources[level as keyof typeof styleResources] || []; 
+  } 
+  if (category) { 
+    resources = resources.filter(resource => resource.category === category); 
+  } 
+  return resources; 
+}
+
 
 // Helper function to search resources by keywords
 export function searchResources(style: string, level: string, keywords: string[]) {

@@ -12,7 +12,7 @@ export class ChatDO {
 
     if (request.method === "GET") {
       const data = (await this.state.storage.get("data")) || {
-        style: "Bharatanatyam",
+        style: null,
         level: "Beginner",
         history: [],
       };
